@@ -98,7 +98,7 @@ if (empty($_GET["ref"])) {
                             <form action="salvar.php" method="post" enctype="multipart/form-data">
                                 <div class="card card-danger card-outline">
                                     <div class="card-header">
-                                        <h3 class="card-title">fornecedores</h3>
+                                        <h3 class="card-title">fornecedores 1</h3>
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
