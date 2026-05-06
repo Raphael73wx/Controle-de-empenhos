@@ -66,11 +66,24 @@ $pagina_ativa = "empenhos";
                                         <thead>
                                             <tr>
                                                 <td>cod</td>
-                                                <td>empenho</td>
-                                                <td>telefone</td>
-                                                <td>Email</td>
+                                                <td>nome</td>
+                                                <td>setor</td>
+                                                <td>preco</td>
                                                 <td>cnpj</td>
-                                                <td>tipo de fornecimento </td>
+                                                <td>data de envio</td>
+                                                <td>nota fiscal</td>
+                                                <td>financeiro</td>
+                                                <td>ordem bancaria</td>
+                                                <td>valor de entrega</td>
+                                                <td>not atraso</td>
+                                                <td>quantidade</td>
+                                                <td>num ordem bancaria</td>
+                                                <td>financeiro</td>
+                                                <td>nota fiscal</td>
+                                                <td>num requisicao</td>
+                                                <td>envio do empenho</td>
+                                                <td>codigo do empenho</td>
+                                                <td>conclusao do empenho</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -91,13 +104,25 @@ $pagina_ativa = "empenhos";
                                                 echo '
                                             <tr>
                                             <td>' . $row->pk_empenhos . '</td>
-                                            <td>' . $row->empenho . '</td>
-                                            <td>' . $row->telefone . '</td>
-                                            <td>' . $row->email . '</td>
+                                            <td>' . $row->nome . '</td>
+                                            <td>' . $row->setor . '</td>
+                                            <td>' . $row->preco . '</td>
                                             <td>' . $row->cnpj . '</td>
-                                            <td>' . $row->tipo_de_fornecimento . '</td>
-                                            
-                                            <td>
+                                            <td>' . $row->data_de_envio . '</td>
+                                            <td>' . $row->nota_fiscal_num . '</td>
+                                            <td>' . $row->financeiro_num . '</td>
+                                            <td>' . $row->ordem_bancaria . '</td>
+                                            <td>' . $row->valor_de_entrega . '</td>
+                                            <td>' . $row->notificacoes_atraso . '</td>
+                                            <td>' . $row->qtd . '</td>
+                                            <td>' . $row->ordem_bancaria_num . '</td>
+                                            <td>' . $row->financeiro . '</td>
+                                            <td>' . $row->nota_fiscal . '</td>
+                                            <td>' . $row->requisicao_num . '</td>
+                                            <td>' . $row->requisicao . '</td>
+                                            <td>' . $row->envio_emp . '</td>
+                                            <td>' . $row->codigo_empenho . '</td>
+                                            <td>' . $row->conclusao_emp . '</td>
                                             <div class="btn-group">
                                             <button class="btn btn-default dropdown-toggle dropdown-toggle" type="button" data-toggle="dropdown">
                                               <i class="bi bi-tools"></i>
