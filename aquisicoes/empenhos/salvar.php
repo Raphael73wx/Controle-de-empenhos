@@ -3,6 +3,7 @@
 include("../verificar-autenticidade.php");
 include("../conexao-pdo.php");
 //verifica se está vindo informações via post
+
 if ($_POST) {
     //verifica campos obrigatórios
     if (empty($_POST["pedido"]) || empty($_POST["forma_p"]) || empty($_POST["endereco"])) {
