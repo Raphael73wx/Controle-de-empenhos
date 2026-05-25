@@ -1,0 +1,56 @@
+
+<?php
+// Captura o termo de busca se ele existir
+$busca = isset($_GET['busca']) ? trim($_GET['busca']) : '';
+
+if ($busca !== '') {
+    // SQL com filtro de busca por nome
+    $sql = "
+    SELECT *
+    FROM fornecedores
+    WHERE nome LIKE :busca
+    ORDER BY pk_fornecedores
+    ";
+} else {
+    // SQL padrão sem filtro
+    $sql = "
+    SELECT *
+    FROM fornecedores
+    ORDER BY pk_fornecedores
+    ";
+}
+
+// Prepara a sintaxe na conexão (corrigido para $conn)
+$stmt = $conn->prepare($sql);
+
+// Se houver busca, vincula o parâmetro com os coringas % do SQL
+if ($busca !== '') {
+    $termo = "%" . $busca . "%";
+    $stmt->bindParam(':busca', $termo);
+}
+
+// Executa o comando MYSQL
+$stmt->execute();
+
+// Recebe as informações vindas do MYSQL
+$dados = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+// Laço de repetição para printar informações
+foreach ($dados as $row) {
+    // (O restante do seu foreach continua exatamente igual aqui dentro)
+
+
+    <?php
+                                            $sql = "
+                                            SELECT *
+                                            FROM  fornecedores
+                                            ORDER BY pk_fornecedores
+                                            ";
+                                            //prepara a sintaxe na conexão
+                                            $stmt = $coon->prepare($sql);
+                                            //executa o comando MYSQL
+                                            $stmt->execute();
+                                            //recebe as informações vindas do MYSQL
+                                            $dados = $stmt->fetchAll(PDO::FETCH_OBJ);
+                                            //laço de repetição para printar informações
+ </git-ignore>

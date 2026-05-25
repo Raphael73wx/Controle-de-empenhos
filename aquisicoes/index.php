@@ -11,7 +11,7 @@ $pagina_ativa = "home";
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Adm Busrt</title>
+  <title>Aquisições</title>
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
@@ -60,7 +60,7 @@ $pagina_ativa = "home";
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item active">Aquisicoes</li>
+                <li class="breadcrumb-item active">Aquisições</li>
               </ol>
             </div><!-- /.col -->
           </div><!-- /.row -->
@@ -78,7 +78,7 @@ $pagina_ativa = "home";
               <div class="small-box bg-info">
                 <div class="inner">
                   <h3><?php echo $tp; ?></h3>
-                  <p>Pedidos</p>
+                  <p>Empenhos</p>
                 </div>
                 <div class="icon">
                   <i class="ion bi  bi-box-seam "></i>

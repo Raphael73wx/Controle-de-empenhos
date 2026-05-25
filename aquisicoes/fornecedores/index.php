@@ -6,6 +6,7 @@ $pagina_ativa = "fornecedores";
 
 
 
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -56,10 +57,24 @@ $pagina_ativa = "fornecedores";
                         <div class="col">
                             <div class="card card-danger card-outline">
                                 <div class="card-header">
-                                    <h3 class="card-title">Pedidos recebidos</h3>
-                                    <a href="./form.php" class="btn bt-sm btn-info float-right rounded-circle">
-                                        <i class="bi bi-plus"></i>
-                                    </a>
+                                    <h3 class="card-title">Fornecedores</h3>
+                                    <!-- Formulário de Busca -->
+                                    <form method="GET" action="" class="mb-3">
+                                        <div class="input-group">
+                                          <input type="text" name="busca" class="form-control" placeholder="Digitar nome do fornecedor..." value="<?php echo isset($_GET['busca']) ? htmlspecialchars($_GET['busca']) : ''; ?>">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-default" type="submit">
+                                                    <i class="fas fa-search"></i> Buscar
+                                                </button>
+                                                <?php if (isset($_GET['busca']) && $_GET['busca'] !== ''): ?>
+                                                <a href="./" class="btn btn-outline-secondary">Limpar</a>
+                                                <?php endif; ?>
+                                            </div>
+                                            <a  href="./form.php" class="btn bt-sm btn-info float-right rounded-circle">
+                                                 <i class="bi bi-plus"></i>
+                                            </a>
+                                        </div>
+                                    </form>
                                 </div>
                                 <div class="card-body">
                                     <table class="table">
@@ -75,18 +90,43 @@ $pagina_ativa = "fornecedores";
                                         </thead>
                                         <tbody>
                                             <?php
+                                            // Captura o termo de busca se ele existir
+                                            $busca = isset($_GET['busca']) ? trim($_GET['busca']) : '';
+
+                                            if ($busca !== '') {
+                                            // SQL com filtro de busca por nome
                                             $sql = "
                                             SELECT *
-                                            FROM  fornecedores
+                                            FROM fornecedores
+                                            WHERE nome LIKE :busca
                                             ORDER BY pk_fornecedores
                                             ";
-                                            //prepara a sintaxe na conexão
+                                            } else {
+                                            // SQL padrão sem filtro
+                                            $sql = "
+                                            SELECT *
+                                            FROM fornecedores
+                                            ORDER BY pk_fornecedores
+                                            ";
+                                            }
+
+                                            // Prepara a sintaxe na conexão (corrigido para $conn)
                                             $stmt = $coon->prepare($sql);
-                                            //executa o comando MYSQL
+
+                                            // Se houver busca, vincula o parâmetro com os coringas % do SQL
+                                            if ($busca !== '') {
+                                            $termo = "%" . $busca . "%";
+                                            $stmt->bindParam(':busca', $termo);
+                                            }
+
+                                            // Executa o comando MYSQL
                                             $stmt->execute();
-                                            //recebe as informações vindas do MYSQL
+
+                                            // Recebe as informações vindas do MYSQL
                                             $dados = $stmt->fetchAll(PDO::FETCH_OBJ);
-                                            //laço de repetição para printar informações
+
+                                            // Laço de repetição para printar informações
+
                                             foreach ($dados as $row) {
                                                 echo '
                                             <tr>

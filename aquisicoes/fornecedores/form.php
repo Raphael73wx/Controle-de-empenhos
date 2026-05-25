@@ -98,7 +98,7 @@ if (empty($_GET["ref"])) {
                             <form action="salvar.php" method="post" enctype="multipart/form-data">
                                 <div class="card card-danger card-outline">
                                     <div class="card-header">
-                                        <h3 class="card-title">fornecedores 1</h3>
+                                        <h3 class="card-title">fornecedores</h3>
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
@@ -112,7 +112,7 @@ if (empty($_GET["ref"])) {
                                             </div>
                                             <div class="col-md-2">
                                                 <label for="fornecedores" class="form-label">telefone</label>
-                                                <input type="number" class="form-control" id="telefone" name="telefone" value="<?php echo $telefone; ?>">
+                                                <input type="text" class="form-control" id="telefone" name="telefone" value="<?php echo $telefone; ?>">
                                             </div>
                                             <div class="col-md-3">
                                                 <label for="fornecedores" class="form-label">email</label>

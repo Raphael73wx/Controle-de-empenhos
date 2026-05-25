@@ -21,10 +21,9 @@ if ($_POST) {
         try {
             if (empty($pk_fornecedores)) {
                 $sql = "
-             INSERT INTO fornecedores (pk_fornecedores, nome,telefone,email,cnpj,tipo_de_fornecimento)
-             VALUES(:nome,:telefone,:email,:cnpj,tipo_de_fornecimento)
+             INSERT INTO fornecedores (nome, telefone, email, cnpj, tipo_de_fornecimento)
+             VALUES(:nome, :telefone, :email, :cnpj, :tipo_de_fornecimento)
              ";
-             $numero_p = rand(0,2000000);
                 $stmt = $coon->prepare($sql);
                 $stmt->bindParam(':nome',$nome);
                 $stmt->bindParam(':telefone',$telefone);
@@ -33,7 +32,7 @@ if ($_POST) {
                 $stmt->bindParam(':tipo_de_fornecimento',$tipo_de_fornecimento);
             } else {
                 $sql = "
-                UPDATE fornecedores SET nome =:nome, telefone =:telefone, email =:email,cnpj =:cnpj,tipo_de_fornecimento =:tipo_de_fornecimento
+                UPDATE fornecedores SET nome =:nome, telefone =:telefone, email =:email, cnpj =:cnpj, tipo_de_fornecimento =:tipo_de_fornecimento
                 WHERE pk_fornecedores = :pk_fornecedores
                 ";
                 $stmt = $coon->prepare($sql);

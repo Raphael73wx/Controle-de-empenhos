@@ -1,8 +1,8 @@
 <aside id="asideMenu" class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
   <a href="<?php echo caminhoURL ?>" class="brand-link">
-    <img src="<?php echo caminhoURL?>assets/imagens/assetsall/logonav1.png" alt="Logo" class="brand-image rounded-circle" style="opacity: .8">
-    <span class="brand-text font-weight-light">adm</span>
+    <img src="<?php echo caminhoURL?>dist/img/logo.jpg" alt="Logo" class="brand-image rounded-circle" style="opacity: .8">
+    <span class="brand-text font-weight-light">Painel Adm</span>
   </a>
 
   <!-- Sidebar -->
