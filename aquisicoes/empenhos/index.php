@@ -12,7 +12,7 @@ $pagina_ativa = "empenhos";
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Dashboard</title>
+    <title>Empenhos Cmavex</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -54,132 +54,131 @@ $pagina_ativa = "empenhos";
                 <div class="container-fluid">
                     <div class="row mt-3">
                         <div class="col">
-                            <div class="card card-danger card-outline">
-                                <div class="card-header">
-                                    <h3 class="card-title">empenhos</h3>
-                                    <a href="./form.php" class="btn bt-sm btn-info float-right rounded-circle">
-                                        <i class="bi bi-plus"></i>
-                                    </a>
-                                </div>
-                                <div class="card-body">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <td>cod</td>
-                                                <td>nome</td>
-                                                <td>setor</td>
-                                                <td>preco</td>
-                                                <td>cnpj</td>
-                                                <td>data de envio</td>
-                                                <td>nota fiscal</td>
-                                                <td>financeiro</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php
-                                            $sql = "
-                                            SELECT *
-                                            FROM  empenhos
-                                            ORDER BY pk_empenhos
-                                            ";
-                                            //prepara a sintaxe na conexão
-                                            $stmt = $coon->prepare($sql);
-                                            //executa o comando MYSQL
-                                            $stmt->execute();
-                                            //recebe as informações vindas do MYSQL
-                                            $dados = $stmt->fetchAll(PDO::FETCH_OBJ);
-                                            //laço de repetição para printar informações
-                                            foreach ($dados as $row) {
-                                                echo '
-                                            <tr>
-                                            <td>' . $row->pk_empenhos . '</td>
-                                            <td>' . $row->nome . '</td>
-                                            <td>' . $row->setor . '</td>
-                                            <td>' . $row->preco . '</td>
-                                            <td>' . $row->cnpj . '</td>
-                                            <td>' . $row->data_de_envio . '</td>
-                                            <td>' . $row->nota_fiscal_num . '</td>
-                                            <td>' . $row->financeiro_num . '</td>
-                                            
-                                            <div class="btn-group">
-                                            <button class="btn btn-default dropdown-toggle dropdown-toggle" type="button" data-toggle="dropdown">
-                                              <i class="bi bi-tools"></i>
-                                            </button>
-                                            <div class="dropdown-menu" role="menu">
-                                              <a class="dropdown-item" href="form.php?ref=' . base64_encode($row->pk_empenhos) . '">
-                                                <i class="bi bi-pencil"></i>Editar
-                                              </a>
-                                              <a class="dropdown-item" href="remover.php?ref=' . base64_encode($row->pk_empenhos) . '">
-                                                <i class="bi bi-trash"></i>Remover
-                                              </a>
-                                              </div>
+                            <div class="card card-olive card-outline">
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <h3 class="card-title">Empenhos</h3>
+                                    <form method="GET" action="" class="mb-0 ml-auto">
+                                        <div class="input-group">
+                                          <input type="text" name="busca" class="form-control" placeholder="Digitar nome do empenho..." value="<?php echo isset($_GET['busca']) ? htmlspecialchars($_GET['busca']) : ''; ?>">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-default" type="submit">
+                                                    <i class="fas fa-search"></i> Buscar
+                                                </button>
+                                                <?php if (isset($_GET['busca']) && $_GET['busca'] !== ''): ?>
+                                                <a href="./" class="btn btn-outline-secondary">Limpar</a>
+                                                <?php endif; ?>
                                             </div>
-                                            </td>
-                                        
-                                            </tr>
-                                            ';
-                                            }
-
-                                            ?>
-                                        </tbody>
-                                         <tr>
-                                                <td>ordem bancaria</td>
-                                                <td>valor de entrega</td>
-                                                <td>not atraso</td>
-                                                <td>quantidade</td>
-                                                <td>num ordem bancaria</td>
-                                                <td>financeiro</td>
-                                                <td>nota fiscal</td>
-                                                <td>num requisicao</td>
-                                                <td>envio do empenho</td>
-                                                <td>codigo do empenho</td>
-                                                <td>conclusao do empenho</td>
-                                        </tr>
-                                        <tbody>
-                                            <?php
-                                            $sql = "
-                                            SELECT *
-                                            FROM  empenhos
-                                            ORDER BY pk_empenhos
-                                            ";
-                                            //prepara a sintaxe na conexão
-                                            $stmt = $coon->prepare($sql);
-                                            //executa o comando MYSQL
-                                            $stmt->execute();
-                                            //recebe as informações vindas do MYSQL
-                                            $dados = $stmt->fetchAll(PDO::FETCH_OBJ);
-                                            //laço de repetição para printar informações
-                                            foreach ($dados as $row) {
-                                                echo '
-                                            <tr>
-                                            <td>' . $row->ordem_bancaria . '</td>
-                                            <td>' . $row->valor_de_entrega . '</td>
-                                            <td>' . $row->notificacoes_atraso . '</td>
-                                            <td>' . $row->qtd . '</td>
-                                            <td>' . $row->ordem_bancaria_num . '</td>
-                                            <td>' . $row->financeiro . '</td>
-                                            <td>' . $row->nota_fiscal . '</td>
-                                            <td>' . $row->requisicao_num . '</td>
-                                            <td>' . $row->requisicao . '</td>
-                                            <td>' . $row->envio_emp . '</td>
-                                            <td>' . $row->codigo_empenho . '</td>
-                                            <td>' . $row->conclusao_emp . '</td>
-                                            </td>
-                                        
-                                            </tr>
-                                            ';
-                                            }
-
-                                            ?>
-                                        </tbody>
-                                    </table>
+                                            <a  href="./form.php" class="btn bt-sm btn-info float-right rounded-circle ml-2 d-flex align-items-center justify-content-center">
+                                                 <i class="bi bi-plus"></i>
+                                            </a>
+                                        </div>
+                                    </form>
                                 </div>
-                                <!-- /.card-body -->
+                                <div class="card-body p-0">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped table-hover text-nowrap m-0">
+                                            <thead>
+                                                <tr>
+                                                    <th>cod</th>
+                                                    <th>nome</th>
+                                                    <th>setor</th>
+                                                    <th>preco</th>
+                                                    <th>cnpj</th>
+                                                    <th>quantidade</th>
+                                                    <th>financeiro num</th>
+                                                    <th>financeiro</th>
+                                                    <th>ordem bancaria</th>
+                                                    <th>num ordem bancaria</th>
+                                                    <th>valor de entrega</th>
+                                                    <th>nota fiscal num</th>
+                                                    <th>nota fiscal</th>
+                                                    <th>num requisicao</th>
+                                                    <th>data de envio</th>
+                                                    <th>envio do empenho</th>
+                                                    <th>codigo do empenho</th>
+                                                    <th>conclusao do empenho</th>
+                                                    <th>not atraso</th>
+                                                    <th class="text-center">Ações</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                $busca = isset($_GET['busca']) ? trim($_GET['busca']) : '';
+                                                if ($busca !== '') {
+                                                // SQL com filtro de busca por nome
+                                                $sql = "
+                                                SELECT *
+                                                FROM empenhos
+                                                WHERE nome LIKE :busca
+                                                ORDER BY pk_empenhos
+                                                ";
+                                                } else {
+                                                // SQL padrão sem filtro
+                                                $sql = "
+                                                SELECT *
+                                                FROM empenhos
+                                                ORDER BY pk_empenhos
+                                                ";    
+                                                }
+                                                // Prepara a sintaxe na conexão utilizando a sua variável \$coon
+                                                $stmt = $coon->prepare($sql);
+                                                if ($busca !== '') {
+                                                $termo = "%" . $busca . "%";
+                                                $stmt->bindParam(':busca', $termo);
+                                                }
+
+                                                $stmt->execute();
+                                                $dados = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+                                                foreach ($dados as $row) {
+                                                    echo '
+                                                    <tr>
+                                                        <td>' . htmlspecialchars($row->pk_empenhos ?? '') . '</td>
+                                                        <td>' . htmlspecialchars($row->nome ?? '') . '</td>
+                                                        <td>' . htmlspecialchars($row->setor ?? '') . '</td>
+                                                        <td>' . htmlspecialchars($row->preco ?? '') . '</td>
+                                                        <td>' . htmlspecialchars($row->cnpj ?? '') . '</td>
+                                                        <td>' . htmlspecialchars($row->quantidade ?? '') . '</td>
+                                                        <td>' . htmlspecialchars($row->financeiro_num ?? '') . '</td>
+                                                        <td>' . htmlspecialchars($row->financeiro ?? '') . '</td>
+                                                        <td>' . htmlspecialchars($row->ordem_bancaria ?? '') . '</td>
+                                                        <td>' . htmlspecialchars($row->num_ordem_bancaria ?? '') . '</td>
+                                                        <td>' . htmlspecialchars($row->valor_de_entrega ?? '') . '</td>
+                                                        <td>' . htmlspecialchars($row->nota_fiscal_num ?? '') . '</td>
+                                                        <td>' . htmlspecialchars($row->nota_fiscal ?? '') . '</td>
+                                                        <td>' . htmlspecialchars($row->num_requisicao ?? '') . '</td>
+                                                        <td>' . htmlspecialchars($row->data_de_envio ?? '') . '</td>
+                                                        <td>' . htmlspecialchars($row->envio_do_empenho ?? '') . '</td>
+                                                        <td>' . htmlspecialchars($row->codigo_do_empenho ?? '') . '</td>
+                                                        <td>' . htmlspecialchars($row->conclusao_do_empenho ?? '') . '</td>
+                                                        <td>' . htmlspecialchars($row->not_atraso ?? '') . '</td>
+                                                        <td class="text-center">
+                                                            <div class="btn-group">
+                                                                <button class="btn btn-sm btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                    <i class="bi bi-tools"></i>
+                                                                </button>
+                                                                <div class="dropdown-menu dropdown-menu-right" role="menu">
+                                                                    <a class="dropdown-item" href="form.php?ref=' . base64_encode($row->pk_empenhos) . '">
+                                                                        <i class="bi bi-pencil text-primary mr-2"></i> Editar
+                                                                    </a>
+                                                                    <a class="dropdown-item" href="remover.php?ref=' . base64_encode($row->pk_empenhos) . '">
+                                                                        <i class="bi bi-trash text-danger mr-2"></i> Remover
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>';
+                                                }
+                                                ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> 
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->

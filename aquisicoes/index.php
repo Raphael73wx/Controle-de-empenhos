@@ -32,23 +32,18 @@ $pagina_ativa = "home";
 
 <body class="hold-transition sidebar-mini layout-fixed">
   <div class="wrapper">
-
-    <!-- Preloader
-  <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+  <!-- <div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__shake" src="<?php echo caminhoURL?>dist/img/logo.jpg" alt="logo" height="160" width="250">
   </div> -->
-
     <!-- Navbar -->
     <?php
     include('nav.php');
     ?>
     <!-- /.navbar -->
-
     <!-- Main Sidebar Container -->
     <?php
     include('aside.php');
     ?>
-
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->

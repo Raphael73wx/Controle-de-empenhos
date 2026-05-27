@@ -49,7 +49,7 @@ if (empty($_GET["ref"])) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Dashboard</title>
+    <title>Aquisições</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -98,7 +98,7 @@ if (empty($_GET["ref"])) {
                             <form action="salvar.php" method="post" enctype="multipart/form-data">
                                 <div class="card card-danger card-outline">
                                     <div class="card-header">
-                                        <h3 class="card-title">fornecedores</h3>
+                                        <h3 class="card-title">Fornecedores</h3>
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
@@ -107,25 +107,25 @@ if (empty($_GET["ref"])) {
                                                 <input readonly required type="number" class="form-control" name="pk_fornecedores" id="pk_fornecedores" value="<?php echo $pk_fornecedores; ?>">
                                             </div>
                                             <div class="col-md-5">
-                                                <label for="fornecedores" class="form-label">nome</label>
+                                                <label for="fornecedores" class="form-label">Nome</label>
                                                 <input type="text" required class="form-control" id="nome" name="nome" value="<?php echo $nome; ?>">
                                             </div>
                                             <div class="col-md-2">
-                                                <label for="fornecedores" class="form-label">telefone</label>
+                                                <label for="fornecedores" class="form-label">Telefone</label>
                                                 <input type="text" class="form-control" id="telefone" name="telefone" value="<?php echo $telefone; ?>">
                                             </div>
                                             <div class="col-md-3">
-                                                <label for="fornecedores" class="form-label">email</label>
+                                                <label for="fornecedores" class="form-label">Email</label>
                                                 <input type="text" class="form-control" id="email" name="email" value="<?php echo $email; ?>">
                                             </div>
                                         </div>
                                         <div class="row mb-3">
                                             <div class="col-md-6">
-                                                <label for="fornecedores" class="form-label">cnpj</label>
+                                                <label for="fornecedores" class="form-label">Cnpj</label>
                                                 <input class="form-control" id="cnpj" name="cnpj" value="<?php echo $cnpj; ?>">
                                             </div>
                                             <div class="col-md-6">
-                                                <label for="fornecedores" class="form-label">tipo de fornecimento</label>
+                                                <label for="fornecedores" class="form-label">Tipo de fornecimento</label>
                                                 <input  class="form-control" id="tipo_de_fornecimento" name="tipo_de_fornecimento" value="<?php echo $tipo_de_fornecimento; ?>">
                                             </div>
                                         </div>

@@ -13,7 +13,7 @@ $pagina_ativa = "fornecedores";
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Dashboard</title>
+    <title>Empenhos Cmavex</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -55,11 +55,11 @@ $pagina_ativa = "fornecedores";
                 <div class="container-fluid">
                     <div class="row mt-3">
                         <div class="col">
-                            <div class="card card-danger card-outline">
-                                <div class="card-header">
+                            <div class="card card-olive card-outline">
+                                <div class="card-header d-flex justify-content-between align-items-center">
                                     <h3 class="card-title">Fornecedores</h3>
                                     <!-- Formulário de Busca -->
-                                    <form method="GET" action="" class="mb-3">
+                                    <form method="GET" action="" class="mb-0 ml-auto">
                                         <div class="input-group">
                                           <input type="text" name="busca" class="form-control" placeholder="Digitar nome do fornecedor..." value="<?php echo isset($_GET['busca']) ? htmlspecialchars($_GET['busca']) : ''; ?>">
                                             <div class="input-group-append">
@@ -70,7 +70,7 @@ $pagina_ativa = "fornecedores";
                                                 <a href="./" class="btn btn-outline-secondary">Limpar</a>
                                                 <?php endif; ?>
                                             </div>
-                                            <a  href="./form.php" class="btn bt-sm btn-info float-right rounded-circle">
+                                            <a  href="./form.php" class="btn bt-sm btn-info float-right rounded-circle ml-2 d-flex align-items-center justify-content-center">
                                                  <i class="bi bi-plus"></i>
                                             </a>
                                         </div>

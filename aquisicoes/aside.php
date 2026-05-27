@@ -10,7 +10,7 @@
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
       <div class="image">
-        <img src="<?php echo caminhoURL . 'assets/imagens/usuarios/' . $_SESSION["foto_usuario"]; ?>" class="img-circle elevation-2" alt="<?php echo $_SESSION["nome_usuario"] ?>">
+        <img src="<?php echo caminhoURL . 'dist/img/' . $_SESSION["foto_usuario"]; ?>" class="img-circle elevation-2" alt="<?php echo $_SESSION["nome_usuario"] ?>">
       </div>
       <div class="info">
         <a href="<?php echo caminhoURL; ?>perfil.php" class="d-block"><?php echo $_SESSION["nome_usuario"] ?></a>

@@ -13,7 +13,7 @@ if ($_SESSION["autenticado"] != true) {
    header("location: login.php");
    exit;
 } else {
-   $tempo_limite = 100000; //segundos
+   $tempo_limite = 20000; //segundos
    $tempo_atual = time();
 
    //verificar tempo inativo do usuario

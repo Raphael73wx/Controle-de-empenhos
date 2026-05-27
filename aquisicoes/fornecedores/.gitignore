@@ -53,4 +53,140 @@ foreach ($dados as $row) {
                                             //recebe as informações vindas do MYSQL
                                             $dados = $stmt->fetchAll(PDO::FETCH_OBJ);
                                             //laço de repetição para printar informações
+
+
+
+
+
+
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row mt-3">
+                        <div class="col">
+                            <div class="card card-olive card-outline">
+                                <div class="card-header">
+                                    <h3 class="card-title">Empenhos</h3>
+                                    <a href="./form.php" class="btn bt-sm btn-info float-right rounded-circle">
+                                        <i class="bi bi-plus"></i>
+                                    </a>
+                                </div>
+                                <div class="card-body">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <td>cod</td>
+                                                <td>nome</td>
+                                                <td>setor</td>
+                                                <td>preco</td>
+                                                <td>cnpj</td>
+                                                <td>data de envio</td>
+                                                <td>nota fiscal</td>
+                                                <td>financeiro</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            $sql = "
+                                            SELECT *
+                                            FROM  empenhos
+                                            ORDER BY pk_empenhos
+                                            ";
+                                            //prepara a sintaxe na conexão
+                                            $stmt = $coon->prepare($sql);
+                                            //executa o comando MYSQL
+                                            $stmt->execute();
+                                            //recebe as informações vindas do MYSQL
+                                            $dados = $stmt->fetchAll(PDO::FETCH_OBJ);
+                                            //laço de repetição para printar informações
+                                            foreach ($dados as $row) {
+                                                echo '
+                                            <tr>
+                                            <td>' . $row->pk_empenhos . '</td>
+                                            <td>' . $row->nome . '</td>
+                                            <td>' . $row->setor . '</td>
+                                            <td>' . $row->preco . '</td>
+                                            <td>' . $row->cnpj . '</td>
+                                            <td>' . $row->data_de_envio . '</td>
+                                            <td>' . $row->nota_fiscal_num . '</td>
+                                            <td>' . $row->financeiro_num . '</td>
+                                            
+                                            <div class="btn-group">
+                                            <button class="btn btn-default dropdown-toggle dropdown-toggle" type="button" data-toggle="dropdown">
+                                              <i class="bi bi-tools"></i>
+                                            </button>
+                                            <div class="dropdown-menu" role="menu">
+                                              <a class="dropdown-item" href="form.php?ref=' . base64_encode($row->pk_empenhos) . '">
+                                                <i class="bi bi-pencil"></i>Editar
+                                              </a>
+                                              <a class="dropdown-item" href="remover.php?ref=' . base64_encode($row->pk_empenhos) . '">
+                                                <i class="bi bi-trash"></i>Remover
+                                              </a>
+                                              </div>
+                                            </div>
+                                            </td>
+                                        
+                                            </tr>
+                                            ';
+                                            }
+
+                                            ?>
+                                        </tbody>
+                                         <tr>
+                                                <td>ordem bancaria</td>
+                                                <td>valor de entrega</td>
+                                                <td>not atraso</td>
+                                                <td>quantidade</td>
+                                                <td>num ordem bancaria</td>
+                                                <td>financeiro</td>
+                                                <td>nota fiscal</td>
+                                                <td>num requisicao</td>
+                                                <td>envio do empenho</td>
+                                                <td>codigo do empenho</td>
+                                                <td>conclusao do empenho</td>
+                                        </tr>
+                                        <tbody>
+                                            <?php
+                                            $sql = "
+                                            SELECT *
+                                            FROM  empenhos
+                                            ORDER BY pk_empenhos
+                                            ";
+                                            //prepara a sintaxe na conexão
+                                            $stmt = $coon->prepare($sql);
+                                            //executa o comando MYSQL
+                                            $stmt->execute();
+                                            //recebe as informações vindas do MYSQL
+                                            $dados = $stmt->fetchAll(PDO::FETCH_OBJ);
+                                            //laço de repetição para printar informações
+                                            foreach ($dados as $row) {
+                                                echo '
+                                            <tr>
+                                            <td>' . $row->ordem_bancaria . '</td>
+                                            <td>' . $row->valor_de_entrega . '</td>
+                                            <td>' . $row->notificacoes_atraso . '</td>
+                                            <td>' . $row->qtd . '</td>
+                                            <td>' . $row->ordem_bancaria_num . '</td>
+                                            <td>' . $row->financeiro . '</td>
+                                            <td>' . $row->nota_fiscal . '</td>
+                                            <td>' . $row->requisicao_num . '</td>
+                                            <td>' . $row->requisicao . '</td>
+                                            <td>' . $row->envio_emp . '</td>
+                                            <td>' . $row->codigo_empenho . '</td>
+                                            <td>' . $row->conclusao_emp . '</td>
+                                            </td>
+                                        
+                                            </tr>
+                                            ';
+                                            }
+
+                                            ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
  </git-ignore>

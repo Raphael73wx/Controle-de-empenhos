@@ -6,7 +6,7 @@ include("../conexao-pdo.php");
 
 if ($_POST) {
     //verifica campos obrigatórios
-    if (empty($_POST["pedido"]) || empty($_POST["forma_p"]) || empty($_POST["endereco"])) {
+    if (empty($_POST["pk_empenhos"]) || empty($_POST["nome"])) {
         $_SESSION["tipo"] = 'warning';
         $_SESSION["title"] = 'Ops!';
         $_SESSION["msg"] = 'Por favor, preencha os campos obrigatórios.';

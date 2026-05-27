@@ -83,17 +83,17 @@ if (empty($_GET["ref"])) {
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="../dashboard/dist/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="../dist/plugins/fontawesome-free/css/all.min.css">
     <!-- bootstrap-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- Tempusdominus Bootstrap 4 -->
-    <link rel="stylesheet" href="../dashboard/dist/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <link rel="stylesheet" href="../dist/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
     <!-- iCheck -->
-    <link rel="stylesheet" href="../dashboard/dist/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <link rel="stylesheet" href="../dist/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="../dashboard/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="../dist/css/adminlte.min.css">
     <!-- overlayScrollbars -->
-    <link rel="stylesheet" href="../dashboard/dist/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <link rel="stylesheet" href="../dist/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
@@ -127,39 +127,60 @@ if (empty($_GET["ref"])) {
                             <form action="salvar.php" method="post" enctype="multipart/form-data">
                                 <div class="card card-danger card-outline">
                                     <div class="card-header">
-                                        <h3 class="card-title">Empenhos</h3>
+                                        <h3 class="card-title">fornecedores</h3>
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
-                                            <div class="col-md-2">
-                                                <label for="pk_produto" class="form-label">Cód</label>
-                                                <input readonly required type="text" class="form-control" name="pk_empenhos" id="pk_empenhos" value="<?php echo $pk_empenhos; ?>">
+                                            <div class="col-md-1">
+                                                <label for="pk_fornecedores" class="form-label">Cód</label>
+                                                <input readonly required type="number" class="form-control" name="pk_fornecedores" id="pk_fornecedores" value="<?php echo $pk_empenhos; ?>">
                                             </div>
                                             <div class="col-md-5">
-                                                <label for="produto" class="form-label">empenho</label>
-                                                <input type="text" required class="form-control" id="empenho" name="empenho" value="<?php echo $nome; ?>">
+                                                <label for="fornecedores" class="form-label">Nome</label>
+                                                <input type="text" required class="form-control" id="nome" name="nome" value="<?php echo $nome; ?>">
                                             </div>
                                             <div class="col-md-2">
-                                                <label for="produto" class="form-label">Setor</label>
-                                                <input type="text" required class="form-control" id="setor" name="setor" value="<?php echo $setor; ?>">
+                                                <label for="fornecedores" class="form-label">Setor</label>
+                                                <input type="text" class="form-control" id="telefone" name="telefone" value="<?php echo $setor; ?>">
                                             </div>
-                                            <div class="col-md-3">
-                                                <label for="produto" class="form-label">cnpj</label>
-                                                <input readonly type="text" class="form-control" id="cnpj" name="cnpj" value="<?php echo $cnpj; ?>">
+                                            <div class="col-md-2">
+                                                <label for="fornecedores" class="form-label">Preço</label>
+                                                <input type="text" class="form-control" id="email" name="email" value="<?php echo $preco; ?>">
+                                            </div>
+                                             <div class="col-md-2">
+                                                <label for="fornecedores" class="form-label">Cnpj</label>
+                                                <input class="form-control" id="cnpj" name="cnpj" value="<?php echo $cnpj; ?>">
                                             </div>
                                         </div>
                                         <div class="row mb-3">
-                                            <div class="col-md-6">
-                                                <label for="produto" class="form-label">data de envio</label>
-                                                <input type="text" class="form-control" id="data_de_envio" name="data_de_envio" value="<?php echo $data_de_envio; ?>">
+                                           
+                                            <div class="col-md-1">
+                                                <label for="fornecedores" class="form-label">Quantidade</label>
+                                                <input  class="form-control" id="tipo_de_fornecimento" name="tipo_de_fornecimento" value="<?php echo $qtd; ?>">
                                             </div>
-                                            <div class="col-md-3">
-                                                <label for="produto" class="form-label">num nota fiscal</label>
-                                                <input type="date" class="form-control" id="nota_fical_num" name="nota_fical_num" value="<?php echo $nota_fical_num; ?>">
+                                            <div class="col-md-2">
+                                                <label for="fornecedores" class="form-label">financeiro data</label>
+                                                <input  class="form-control" id="tipo_de_fornecimento" name="tipo_de_fornecimento" value="<?php echo $financeiro; ?>">
                                             </div>
-                                            <div class="col-md-3">
-                                                <label for="produto" class="form-label">financeiro num</label>
-                                                <input type="date" class="form-control" id="financeiro_num" name="financeiro_num" value="<?php echo $financeiro_num; ?>">
+                                            <div class="col-md-2">
+                                                <label for="fornecedores" class="form-label">Financeiro num</label>
+                                                <input  class="form-control" id="tipo_de_fornecimento" name="tipo_de_fornecimento" value="<?php echo $financeiro_num; ?>">
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label for="fornecedores" class="form-label">Ordem Bancaria data</label>
+                                                <input  class="form-control" id="tipo_de_fornecimento" name="tipo_de_fornecimento" value="<?php echo $ordem_bancaria; ?>">
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label for="fornecedores" class="form-label">Ordem Bancaria</label>
+                                                <input  class="form-control" id="tipo_de_fornecimento" name="tipo_de_fornecimento" value="<?php echo $ordem_bancaria_num; ?>">
+                                            </div>
+                                            <div class="col-md-1">
+                                                <label for="fornecedores" class="form-label">Nota fiscal</label>
+                                                <input  class="form-control" id="tipo_de_fornecimento" name="tipo_de_fornecimento" value="<?php echo $nota_fiscal_num; ?>">
+                                            </div>
+                                            <div class="col-md-1">
+                                                <label for="fornecedores" class="form-label">Nota fiscal</label>
+                                                <input  class="form-control" id="tipo_de_fornecimento" name="tipo_de_fornecimento" value="<?php echo $nota_fiscal; ?>">
                                             </div>
                                         </div>
                                     </div>
@@ -207,20 +228,20 @@ if (empty($_GET["ref"])) {
     <!-- ./wrapper -->
 
     <!-- jQuery -->
-    <script src="../dashboard/dist/plugins/jquery/jquery.min.js"></script>
+    <script src="../dist/plugins/jquery/jquery.min.js"></script>
     <!-- jQuery UI 1.11.4 -->
-    <script src="../dashboard/dist/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../dist/plugins/jquery-ui/jquery-ui.min.js"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <script>
         $.widget.bridge('uibutton', $.ui.button)
     </script>
     <!-- Bootstrap 4 -->
-    <script src="../dashboard/dist/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../dist/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Tempusdominus Bootstrap 4 -->
-    <script src="../dashboard/dist/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="../dist/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
     <!-- overlayScrollbars -->
-    <script src="../dashboard/dist/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-    <script src="../dashboard/dist/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+    <script src="../dist/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <script src="../dist/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
     <!-- AdminLTE App -->
     <script src="../../dashboard/dist/js/adminlte.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
