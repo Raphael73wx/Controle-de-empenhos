@@ -43,19 +43,18 @@ if (empty($_GET["ref"])) {
         $setor = $dado->setor;
         $preco = $dado->preco;
         $cnpj = $dado->cnpj;
-        $data_de_envio = $dado->data_de_envio;
+        $data_de_envio = $dado->data_de_envio; //
         $nota_fiscal_num = $dado->nota_fiscal_num;
         $financeiro_num = $dado->financeiro_num;
-        $nota_fiscal_num = $dado->nota_fiscal_num;
         $ordem_bancaria = $dado->ordem_bancaria;
-        $valor_de_entrega = $dado->valor_de_entrega;
+        $valor_de_entrega = $dado->valor_de_entrega; //
         $notificacoes_atraso = $dado->notificacoes_atraso;
         $qtd = $dado->qtd;
         $ordem_bancaria_num = $dado->ordem_bancaria_num;
         $financeiro = $dado->financeiro;
         $nota_fiscal = $dado->nota_fiscal;
         $requisicao_num = $dado->requisicao_num;
-        $requisicao = $dado->requisicao;
+        $requisicao = $dado->requisicao;//
         $envio_emp = $dado->envio_emp;
         $codigo_empenho = $dado->codigo_empenho;
         $conclusao_emp = $dado->conclusao_emp;
@@ -78,7 +77,7 @@ if (empty($_GET["ref"])) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Dashboard</title>
+    <title>Empenhos Cmavex</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -181,6 +180,36 @@ if (empty($_GET["ref"])) {
                                             <div class="col-md-1">
                                                 <label for="fornecedores" class="form-label">Nota fiscal</label>
                                                 <input  class="form-control" id="tipo_de_fornecimento" name="tipo_de_fornecimento" value="<?php echo $nota_fiscal; ?>">
+                                            </div>
+                                            <div class="col-md-1">
+                                                <label for="fornecedores" class="form-label">requisicao</label>
+                                                <input  class="form-control" id="tipo_de_fornecimento" name="tipo_de_fornecimento" value="<?php echo $requisicao_num; ?>">
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-2">
+                                                <label for="fornecedores" class="form-label">Envio do empenho</label>
+                                                <input  class="form-control" id="tipo_de_fornecimento" name="tipo_de_fornecimento" value="<?php echo $envio_emp; ?>">
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label for="fornecedores" class="form-label">Cod empenho</label>
+                                                <input  class="form-control" id="tipo_de_fornecimento" name="tipo_de_fornecimento" value="<?php echo $codigo_empenho; ?>">
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label for="fornecedores" class="form-label">Conclusao do empenho</label>
+                                                <input  class="form-control" id="tipo_de_fornecimento" name="tipo_de_fornecimento" value="<?php echo $conclusao_emp; ?>">
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label for="fornecedores" class="form-label">Notificacão atraso</label>
+                                                <input  class="form-control" id="tipo_de_fornecimento" name="tipo_de_fornecimento" value="<?php echo $notificacoes_atraso; ?>">
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label for="fornecedores" class="form-label">Data de envio</label>
+                                                <input  class="form-control" id="tipo_de_fornecimento" name="tipo_de_fornecimento" value="<?php echo $data_de_envio; ?>">
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label for="fornecedores" class="form-label">valor de entrega</label>
+                                                <input  class="form-control" id="tipo_de_fornecimento" name="tipo_de_fornecimento" value="<?php echo $valor_de_entrega; ?>">
                                             </div>
                                         </div>
                                     </div>
